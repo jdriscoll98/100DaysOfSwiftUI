@@ -7,22 +7,60 @@
 
 import SwiftUI
 
+
+
 struct ContentView: View {
-    @State private var name = ""
+    @State var checkAmount = 0.0
+    @State var numberOfPeople = 0
+    @State var tipPercentage = 20
+    let tipPercentages = [10, 15, 20, 25, 0]
     
-    let students = ["Harry", "Hermoine", "Ron"]
-    @State private var student = "Harry"
+    @FocusState private var amountIsFocused: Bool
+    
+    var totalPerPerson: Double {
+        let totalPeople = Double(numberOfPeople + 2)
+        let totalWithTip = checkAmount * (1 + Double(tipPercentage) / 100)
+        return totalWithTip / totalPeople
+    }
+    
     var body: some View {
         NavigationView {
-            Form {
-                Picker("Select a student", selection: $student) {
-                    ForEach(students, id: \.self) {
-                        Text($0)
+        Form {
+            Section {
+                TextField("Amount", value: $checkAmount, format: .currency(code: Locale.current.currency?.identifier ?? "USD"))
+                    .keyboardType(.decimalPad)
+                    .focused($amountIsFocused)
+                Picker("Number of People", selection: $numberOfPeople) {
+                    ForEach(2..<100, id: \.self) {
+                        Text("\($0) People")
                     }
                 }
             }
-            .navigationTitle("SwiftUI")
+            Section {
+                Picker("Tip Percentages", selection: $tipPercentage) {
+                    ForEach(tipPercentages, id: \.self) {
+                        Text($0, format: .percent)
+                    }
+                }.pickerStyle(.segmented)
+            } header: {
+                Text("How much tip do you want to leave?")
+            }
+            Section {
+                Text(totalPerPerson, format: .currency(code: Locale.current.currency?.identifier ?? "USD"))
+            }
         }
+        .navigationTitle("WeSplit")
+        .toolbar {
+            ToolbarItemGroup(placement: .keyboard) {
+                Spacer()
+
+                Button("Done") {
+                    amountIsFocused = false
+                }
+            }
+        }
+        }
+            
     }
 }
 
