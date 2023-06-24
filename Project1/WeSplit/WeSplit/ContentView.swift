@@ -45,6 +45,8 @@ struct ContentView: View {
             Section {
                 TextField("Amount (\(currentCurrency))", text: $checkAmountText)
                     .keyboardType(.decimalPad)
+                    .focused($amountIsFocused)
+
                 Picker("Number of People", selection: $numberOfPeople) {
                     ForEach(2..<101, id: \.self) {
                         Text("\($0) People")
@@ -73,7 +75,16 @@ struct ContentView: View {
            
         }
         .navigationTitle("WeSplit")
-        .preferredColorScheme(.dark)
+        .toolbar {
+            ToolbarItemGroup(placement: .keyboard) {
+                Spacer()
+
+                Button("Done") {
+                    amountIsFocused = false
+                }
+            }
+        }
+//        .preferredColorScheme(.dark)
         }
             
     }
