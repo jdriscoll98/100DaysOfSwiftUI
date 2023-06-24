@@ -66,6 +66,7 @@ struct ContentView: View {
            
         }
         .navigationTitle("WeSplit")
+        .preferredColorScheme(.dark)
         }
             
     }
