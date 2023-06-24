@@ -11,7 +11,7 @@ import SwiftUI
 
 struct ContentView: View {
     @State var checkAmountText = ""
-    @State var numberOfPeople = 0
+    @State var numberOfPeople = 2
     @State var tipPercentage = 20
     let currentCurrency = Locale.current.currency?.identifier ?? "USD"
     var currencyFormat: FloatingPointFormatStyle<Double>.Currency { return .currency(code: currentCurrency) }
@@ -28,8 +28,15 @@ struct ContentView: View {
     }
     
     var totalPerPerson: Double {
-        let totalPeople = Double(numberOfPeople + 2)
-        return totalWithTip / totalPeople
+        let peopleCount = Double(numberOfPeople)
+            let tipSelection = Double(tipPercentage)
+
+            let tipValue = checkAmount / 100 * tipSelection
+            let grandTotal = checkAmount + tipValue
+            let amountPerPerson = grandTotal / peopleCount
+
+            return amountPerPerson
+
     }
     
     var body: some View {
@@ -39,14 +46,14 @@ struct ContentView: View {
                 TextField("Amount (\(currentCurrency))", text: $checkAmountText)
                     .keyboardType(.decimalPad)
                 Picker("Number of People", selection: $numberOfPeople) {
-                    ForEach(2..<100, id: \.self) {
+                    ForEach(2..<101, id: \.self) {
                         Text("\($0) People")
                     }
                 }
             }
             Section {
                 Picker("Tip Percentages", selection: $tipPercentage) {
-                    ForEach(1..<101, id: \.self) {
+                    ForEach(0..<101, id: \.self) {
                         Text($0, format: .percent)
                     }
                 }.pickerStyle(.navigationLink)
