@@ -7,22 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		04124E912A49B8E800A101AD /* GuessTheFlagApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04124E902A49B8E800A101AD /* GuessTheFlagApp.swift */; };
-		04124E932A49B8E800A101AD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04124E922A49B8E800A101AD /* ContentView.swift */; };
-		04124E952A49B8E900A101AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04124E942A49B8E900A101AD /* Assets.xcassets */; };
-		04124E982A49B8EA00A101AD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04124E972A49B8EA00A101AD /* Preview Assets.xcassets */; };
+		042F78112A53AE5D0014C62B /* BetterRestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042F78102A53AE5D0014C62B /* BetterRestApp.swift */; };
+		042F78132A53AE5D0014C62B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042F78122A53AE5D0014C62B /* ContentView.swift */; };
+		042F78152A53AE5D0014C62B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 042F78142A53AE5D0014C62B /* Assets.xcassets */; };
+		042F78182A53AE5D0014C62B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 042F78172A53AE5D0014C62B /* Preview Assets.xcassets */; };
+		042F78212A54FF230014C62B /* SleepCalculator.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 042F78202A54FF230014C62B /* SleepCalculator.mlmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		04124E8D2A49B8E800A101AD /* GuessTheFlag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GuessTheFlag.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		04124E902A49B8E800A101AD /* GuessTheFlagApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuessTheFlagApp.swift; sourceTree = "<group>"; };
-		04124E922A49B8E800A101AD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		04124E942A49B8E900A101AD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		04124E972A49B8EA00A101AD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		042F780D2A53AE5D0014C62B /* BetterRest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BetterRest.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		042F78102A53AE5D0014C62B /* BetterRestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetterRestApp.swift; sourceTree = "<group>"; };
+		042F78122A53AE5D0014C62B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		042F78142A53AE5D0014C62B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		042F78172A53AE5D0014C62B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		042F78202A54FF230014C62B /* SleepCalculator.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = SleepCalculator.mlmodel; path = BetterRest/SleepCalculator.mlmodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		04124E8A2A49B8E800A101AD /* Frameworks */ = {
+		042F780A2A53AE5D0014C62B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -32,37 +34,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		04124E842A49B8E800A101AD = {
+		042F78042A53AE5D0014C62B = {
 			isa = PBXGroup;
 			children = (
-				04124E8F2A49B8E800A101AD /* GuessTheFlag */,
-				04124E8E2A49B8E800A101AD /* Products */,
+				042F78202A54FF230014C62B /* SleepCalculator.mlmodel */,
+				042F780F2A53AE5D0014C62B /* BetterRest */,
+				042F780E2A53AE5D0014C62B /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		04124E8E2A49B8E800A101AD /* Products */ = {
+		042F780E2A53AE5D0014C62B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				04124E8D2A49B8E800A101AD /* GuessTheFlag.app */,
+				042F780D2A53AE5D0014C62B /* BetterRest.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		04124E8F2A49B8E800A101AD /* GuessTheFlag */ = {
+		042F780F2A53AE5D0014C62B /* BetterRest */ = {
 			isa = PBXGroup;
 			children = (
-				04124E902A49B8E800A101AD /* GuessTheFlagApp.swift */,
-				04124E922A49B8E800A101AD /* ContentView.swift */,
-				04124E942A49B8E900A101AD /* Assets.xcassets */,
-				04124E962A49B8EA00A101AD /* Preview Content */,
+				042F78102A53AE5D0014C62B /* BetterRestApp.swift */,
+				042F78122A53AE5D0014C62B /* ContentView.swift */,
+				042F78142A53AE5D0014C62B /* Assets.xcassets */,
+				042F78162A53AE5D0014C62B /* Preview Content */,
 			);
-			path = GuessTheFlag;
+			path = BetterRest;
 			sourceTree = "<group>";
 		};
-		04124E962A49B8EA00A101AD /* Preview Content */ = {
+		042F78162A53AE5D0014C62B /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				04124E972A49B8EA00A101AD /* Preview Assets.xcassets */,
+				042F78172A53AE5D0014C62B /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -70,39 +73,39 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		04124E8C2A49B8E800A101AD /* GuessTheFlag */ = {
+		042F780C2A53AE5D0014C62B /* BetterRest */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 04124E9B2A49B8EA00A101AD /* Build configuration list for PBXNativeTarget "GuessTheFlag" */;
+			buildConfigurationList = 042F781B2A53AE5D0014C62B /* Build configuration list for PBXNativeTarget "BetterRest" */;
 			buildPhases = (
-				04124E892A49B8E800A101AD /* Sources */,
-				04124E8A2A49B8E800A101AD /* Frameworks */,
-				04124E8B2A49B8E800A101AD /* Resources */,
+				042F78092A53AE5D0014C62B /* Sources */,
+				042F780A2A53AE5D0014C62B /* Frameworks */,
+				042F780B2A53AE5D0014C62B /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = GuessTheFlag;
-			productName = GuessTheFlag;
-			productReference = 04124E8D2A49B8E800A101AD /* GuessTheFlag.app */;
+			name = BetterRest;
+			productName = BetterRest;
+			productReference = 042F780D2A53AE5D0014C62B /* BetterRest.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		04124E852A49B8E800A101AD /* Project object */ = {
+		042F78052A53AE5D0014C62B /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1430;
 				LastUpgradeCheck = 1430;
 				TargetAttributes = {
-					04124E8C2A49B8E800A101AD = {
+					042F780C2A53AE5D0014C62B = {
 						CreatedOnToolsVersion = 14.3.1;
 					};
 				};
 			};
-			buildConfigurationList = 04124E882A49B8E800A101AD /* Build configuration list for PBXProject "GuessTheFlag" */;
+			buildConfigurationList = 042F78082A53AE5D0014C62B /* Build configuration list for PBXProject "BetterRest" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -110,42 +113,43 @@
 				en,
 				Base,
 			);
-			mainGroup = 04124E842A49B8E800A101AD;
-			productRefGroup = 04124E8E2A49B8E800A101AD /* Products */;
+			mainGroup = 042F78042A53AE5D0014C62B;
+			productRefGroup = 042F780E2A53AE5D0014C62B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				04124E8C2A49B8E800A101AD /* GuessTheFlag */,
+				042F780C2A53AE5D0014C62B /* BetterRest */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		04124E8B2A49B8E800A101AD /* Resources */ = {
+		042F780B2A53AE5D0014C62B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				04124E982A49B8EA00A101AD /* Preview Assets.xcassets in Resources */,
-				04124E952A49B8E900A101AD /* Assets.xcassets in Resources */,
+				042F78182A53AE5D0014C62B /* Preview Assets.xcassets in Resources */,
+				042F78152A53AE5D0014C62B /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		04124E892A49B8E800A101AD /* Sources */ = {
+		042F78092A53AE5D0014C62B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				04124E932A49B8E800A101AD /* ContentView.swift in Sources */,
-				04124E912A49B8E800A101AD /* GuessTheFlagApp.swift in Sources */,
+				042F78132A53AE5D0014C62B /* ContentView.swift in Sources */,
+				042F78212A54FF230014C62B /* SleepCalculator.mlmodel in Sources */,
+				042F78112A53AE5D0014C62B /* BetterRestApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		04124E992A49B8EA00A101AD /* Debug */ = {
+		042F78192A53AE5D0014C62B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -205,7 +209,7 @@
 			};
 			name = Debug;
 		};
-		04124E9A2A49B8EA00A101AD /* Release */ = {
+		042F781A2A53AE5D0014C62B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -259,14 +263,14 @@
 			};
 			name = Release;
 		};
-		04124E9C2A49B8EA00A101AD /* Debug */ = {
+		042F781C2A53AE5D0014C62B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"GuessTheFlag/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"BetterRest/Preview Content\"";
 				DEVELOPMENT_TEAM = FGLW548658;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -275,13 +279,12 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = me.driscoll.jack.GuessTheFlag;
+				PRODUCT_BUNDLE_IDENTIFIER = me.driscoll.jack.BetterRest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -289,14 +292,14 @@
 			};
 			name = Debug;
 		};
-		04124E9D2A49B8EA00A101AD /* Release */ = {
+		042F781D2A53AE5D0014C62B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"GuessTheFlag/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"BetterRest/Preview Content\"";
 				DEVELOPMENT_TEAM = FGLW548658;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -305,13 +308,12 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = me.driscoll.jack.GuessTheFlag;
+				PRODUCT_BUNDLE_IDENTIFIER = me.driscoll.jack.BetterRest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -322,25 +324,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		04124E882A49B8E800A101AD /* Build configuration list for PBXProject "GuessTheFlag" */ = {
+		042F78082A53AE5D0014C62B /* Build configuration list for PBXProject "BetterRest" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				04124E992A49B8EA00A101AD /* Debug */,
-				04124E9A2A49B8EA00A101AD /* Release */,
+				042F78192A53AE5D0014C62B /* Debug */,
+				042F781A2A53AE5D0014C62B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		04124E9B2A49B8EA00A101AD /* Build configuration list for PBXNativeTarget "GuessTheFlag" */ = {
+		042F781B2A53AE5D0014C62B /* Build configuration list for PBXNativeTarget "BetterRest" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				04124E9C2A49B8EA00A101AD /* Debug */,
-				04124E9D2A49B8EA00A101AD /* Release */,
+				042F781C2A53AE5D0014C62B /* Debug */,
+				042F781D2A53AE5D0014C62B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 04124E852A49B8E800A101AD /* Project object */;
+	rootObject = 042F78052A53AE5D0014C62B /* Project object */;
 }

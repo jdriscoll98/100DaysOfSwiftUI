@@ -7,6 +7,35 @@
 
 import SwiftUI
 
+struct FlagView: View {
+    var flagTapped: (_ number: Int) -> Void
+    var number: Int
+    var countries: [String]
+    
+    var body: some View {
+        Button {
+            flagTapped(number)
+        } label: {
+            Image(countries[number]).renderingMode(.original)
+        }.clipShape(Capsule()).shadow(radius: 5)
+    }
+}
+
+struct Title: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .foregroundStyle(.secondary)
+               .font(.title.bold())
+    }
+}
+
+
+extension View {
+    func titleStyle() -> some View {
+        modifier(Title())
+    }
+}
+
 struct ContentView: View {
     @State private var countries = ["Estonia", "France", "Germany", "Ireland", "Italy", "Nigeria", "Poland", "Russia", "Spain", "UK", "US"].shuffled()
     @State private var correctAnswer = Int.random(in: 0...2)
@@ -14,6 +43,7 @@ struct ContentView: View {
     @State private var scoreTitle = ""
     @State private var score = 0
     @State private var totalQuestions = 1
+    @State private var results: [Color] = [.black, .black, .black, .black, .black, .black, .black, .black]
     var body: some View {
         ZStack {
             RadialGradient(stops: [
@@ -33,18 +63,15 @@ struct ContentView: View {
                     
                     VStack {
                         Text("Tap the flag of")
-                            .foregroundStyle(.secondary)
-                               .font(.title.bold())
-                        Text(countries[correctAnswer]).foregroundStyle(.secondary).font(.largeTitle.weight(.semibold))
+                            .titleStyle()
+                           
+                        Text(countries[correctAnswer])
+                            .titleStyle()
                     }
                   
                     
                     ForEach(0..<3) { number in
-                        Button {
-                            flagTapped(number)
-                        } label: {
-                            Image(countries[number]).renderingMode(.original)
-                        }.clipShape(Capsule()).shadow(radius: 5)
+                        FlagView(flagTapped: flagTapped(_:), number: number, countries: countries)
                     }
                     
                     Spacer()
@@ -53,6 +80,14 @@ struct ContentView: View {
                         .foregroundStyle(.secondary)
                         .font(.title.bold())
                     Spacer()
+                    HStack {
+                        ForEach(0..<8) { number in
+                            Circle()
+                                .frame(width: 20, height: 20)
+                                .foregroundStyle(results[number])
+                        }
+                       
+                    }
                 }.frame(maxWidth: .infinity)
                     .padding(.vertical, 20)
                     .background(.regularMaterial)
@@ -73,8 +108,10 @@ struct ContentView: View {
         if number == correctAnswer {
             scoreTitle = "Correct"
             score += 1
+            results[totalQuestions - 1] = .green
         } else {
             scoreTitle = "Wrong, that flag is \(countries[number])!"
+            results[totalQuestions - 1] = .red
         }
        
         if (totalQuestions == 8) {
@@ -82,21 +119,25 @@ struct ContentView: View {
             
         }
 
+        
         showingScore = true
     }
     
     func askQuestion() {
         if (totalQuestions == 8) {
             resetGame()
+        } else {
+            totalQuestions += 1
         }
             countries.shuffle()
             correctAnswer = Int.random(in: 0...2)
-
+            
     }
     
     func resetGame() {
         totalQuestions = 1
         score = 0
+        results = [.black, .black, .black, .black, .black, .black, .black, .black]
         
     }
 }
