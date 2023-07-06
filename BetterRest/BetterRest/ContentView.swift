@@ -7,6 +7,12 @@
 import CoreML
 import SwiftUI
 
+extension Color {
+    // Define your custom colors
+    static let DarkRoast = Color(red: 101.0/255.0, green: 67.0/255.0, blue: 33.0/255.0)
+    static let Latte = Color(red: 224.0/255.0, green: 201.0/255.0, blue: 169.0/255.0)
+}
+
 
 struct ContentView: View {
     static var defaultWakeTime: Date {
@@ -20,15 +26,22 @@ struct ContentView: View {
     @State private var sleepAmount = 8.0
     @State private var espressoCount = 1
    
-    
-    @State private var alertTitle = ""
-    @State private var alertMessage = ""
-    @State private var showingAlert = false
-    
     var body: some View {
+       
+   
         NavigationView {
+            ZStack {
+                RadialGradient(
+                    gradient: Gradient(colors: [Color.DarkRoast, Color.Latte]),
+                    center: .center,
+                    startRadius: 5,
+                    endRadius: 500
+                )
+                .edgesIgnoringSafeArea(.all)
+          
+
             Form {
-                VStack {
+                Section {
                     Text("When do you want to wake up?")
                         .font(.headline)
 
@@ -36,34 +49,41 @@ struct ContentView: View {
                         .labelsHidden()
                 }
                 
-                VStack {
+                Section {
                     Text("Desired amount of sleep")
                         .font(.headline)
 
                     Stepper("\(sleepAmount.formatted()) hours", value: $sleepAmount, in: 4...12, step: 0.25)
                 }
 
-                VStack {
+                Section {
                     Text("Daily espresso intake")
                         .font(.headline)
 
                     Stepper(espressoCount == 1 ? "1 shot" : "\(espressoCount) shots", value: $espressoCount, in: 1...20)
                 }
-               
-            }.navigationTitle("BetterRest")
-                .toolbar {
-                    Button("Calculate", action: calculateBedtime)
+                
+                HStack {
+                    Text("Bed Time")
+                        .font(.headline)
+                    Spacer()
+                    Text("\(calculatedBedtime.formatted(.dateTime.hour().minute()))")
+                        .font(.headline)
                 }
-                .alert(alertTitle, isPresented: $showingAlert) {
-                    Button("OK") { }
-                } message: {
-                    Text(alertMessage)
-                }
+                
+            }
+            .navigationTitle("BetterRest")
+            
+           .scrollContentBackground(.hidden)
         }
+   
+        
+        }
+        
         
     }
     
-    func calculateBedtime() {
+    var calculatedBedtime: Date {
         do {
             let config = MLModelConfiguration()
             let model = try SleepCalculator(configuration: config)
@@ -77,17 +97,15 @@ struct ContentView: View {
             
             let prediction = try model.prediction(wake: Double(hour + minute), estimatedSleep: sleepAmount, coffee: caffineAmount)
             
-            let sleepTime = wakeUp - prediction.actualSleep
-            
-            alertTitle = "Your ideal bedtime is…"
-            alertMessage = sleepTime.formatted(date: .omitted, time: .shortened)
+            return wakeUp - prediction.actualSleep
         } catch {
-            alertTitle = "Error"
-            alertMessage = "Sorry, there was a problem calculating your bedtime."
+            return Date.now
         }
-        showingAlert = true
+        
     }
 }
+
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
