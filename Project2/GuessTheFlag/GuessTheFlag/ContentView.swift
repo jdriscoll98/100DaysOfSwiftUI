@@ -11,13 +11,24 @@ struct FlagView: View {
     var flagTapped: (_ number: Int) -> Void
     var number: Int
     var countries: [String]
+    @Binding var opacity: Double
+    
+    @State private var rotation = 0.0
     
     var body: some View {
         Button {
+            rotation += 360
+            opacity = 0.25
             flagTapped(number)
         } label: {
-            Image(countries[number]).renderingMode(.original)
-        }.clipShape(Capsule()).shadow(radius: 5)
+            Image(countries[number])
+                .renderingMode(.original)
+                .rotation3DEffect(.degrees(rotation), axis: (x: 0, y: 1, z: 0))
+                .opacity(opacity)
+        }
+        .clipShape(Capsule())
+        .shadow(radius: 5)
+        .animation(.easeInOut, value: opacity)
     }
 }
 
@@ -44,6 +55,9 @@ struct ContentView: View {
     @State private var score = 0
     @State private var totalQuestions = 1
     @State private var results: [Color] = [.black, .black, .black, .black, .black, .black, .black, .black]
+    @State private var scoreScale = 1.0
+    @State private var flagOpacities = [1.0, 1.0, 1.0]
+    
     var body: some View {
         ZStack {
             RadialGradient(stops: [
@@ -59,8 +73,6 @@ struct ContentView: View {
                
                
                 VStack(spacing: 15) {
-                   
-                    
                     VStack {
                         Text("Tap the flag of")
                             .titleStyle()
@@ -71,14 +83,23 @@ struct ContentView: View {
                   
                     
                     ForEach(0..<3) { number in
-                        FlagView(flagTapped: flagTapped(_:), number: number, countries: countries)
+                        FlagView(flagTapped: flagTapped(_:), number: number, countries: countries, opacity: $flagOpacities[number])
                     }
                     
                     Spacer()
                     Spacer()
                     Text("Score: \(score) / 8")
-                        .foregroundStyle(.secondary)
-                        .font(.title.bold())
+                                   .foregroundStyle(.secondary)
+                                   .font(.title.bold())
+                                   .scaleEffect(CGFloat(scoreScale))
+                                   .animation(.easeInOut, value: scoreScale)
+                                   .onAppear { scoreScale = 1.0 }
+                                   .onChange(of: score, perform: { value in
+                                       scoreScale = 1.2
+                                       DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                                           scoreScale = 1.0
+                                       }
+                                   })
                     Spacer()
                     HStack {
                         ForEach(0..<8) { number in
@@ -131,6 +152,7 @@ struct ContentView: View {
         }
             countries.shuffle()
             correctAnswer = Int.random(in: 0...2)
+        flagOpacities = [1.0, 1.0, 1.0]
             
     }
     
